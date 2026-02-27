@@ -1,4 +1,5 @@
 # PokeDex
+![Android CI](https://github.com/Yakov-Nechaev/PokeDex/actions/workflows/android-ci.yml/badge.svg)
 
 Aplicación Android sencilla y funcional para visualizar información sobre Pokémon, utilizando la [PokeAPI](https://pokeapi.co/).
 
@@ -14,6 +15,14 @@ Aplicación Android sencilla y funcional para visualizar información sobre Pok�
 *   **Otras librerías**:
     *   Palette API (para la generación de colores dinámicos en la UI basados en las imágenes)
     *   Kotlin Coroutines (asincronía)
+
+## 🚀 Download APK
+
+**Latest APK available in GitHub Actions**
+
+1. Open the **Actions** tab
+2. Select latest build
+3. Download artifact **app-debug-apk**
 
 ## Capturas de Pantalla
 
