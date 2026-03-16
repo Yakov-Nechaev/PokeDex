@@ -1,5 +1,7 @@
 package com.kforeach.pokedex.ui.screens
 
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -65,9 +67,14 @@ import com.kforeach.pokedex.ui.items.ItemPoc
 import com.kforeach.pokedex.ui.theme.PrimaryColor
 import com.kforeach.pokedex.vm.MainViewModel
 import com.kforeach.pokedex.vm.StateScreen
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MainScreen(vm: MainViewModel, navigation: NavHostController) {
+fun MainScreen(navigation: NavHostController) {
+    val vm: MainViewModel = koinViewModel(
+        viewModelStoreOwner = LocalActivity.current as ComponentActivity
+    )
+
     MainScreenLayout(
         shortPocList = vm.listPok,
         stateScreen = vm.stateScreen.value,

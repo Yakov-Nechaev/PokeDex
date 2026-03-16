@@ -1,5 +1,7 @@
 package com.kforeach.pokedex.ui.screens
 
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -72,10 +74,15 @@ import com.kforeach.pokedex.ui.theme.TypeSteel
 import com.kforeach.pokedex.ui.theme.TypeWater
 import com.kforeach.pokedex.vm.MainViewModel
 import com.kforeach.pokedex.vm.StateScreen
+import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
-fun DetailScreen(vm: MainViewModel, navigation: NavHostController) {
+fun DetailScreen(navigation: NavHostController) {
+    val vm: MainViewModel = koinViewModel(
+        viewModelStoreOwner = LocalActivity.current as ComponentActivity
+    )
+
     DetailScreenLayout(
         pokemon = vm.detailPok.value,
         codColor = vm.primaryCodColor.value,

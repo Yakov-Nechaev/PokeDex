@@ -32,6 +32,7 @@ val networkModule = module {
     single { get<Retrofit>().create(ApiService::class.java) }
 }
 
+
 val dataModule = module {
     single { StoreManager(androidContext()) }
     single { Repository(context = androidContext(), network = get(), store = get()) }

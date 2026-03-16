@@ -12,8 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import com.kforeach.pokedex.navigation.Screen
 import com.kforeach.pokedex.navigation.setup
 import com.kforeach.pokedex.ui.theme.PokeDexTheme
-import com.kforeach.pokedex.vm.MainViewModel
-import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,18 +24,12 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val navHostController = rememberNavController()
-            val viewModel: MainViewModel = koinViewModel()
 
             PokeDexTheme(darkTheme = false) {
                 NavHost(
                     navController = navHostController,
                     startDestination = Screen.MAIN.route,
-                    builder = {
-                        setup(
-                            navHostController = navHostController,
-                            viewModel = viewModel
-                        )
-                    }
+                    builder = { setup(navHostController = navHostController) }
                 )
             }
         }
